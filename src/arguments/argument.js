@@ -32,6 +32,18 @@ module.exports = (function () {
     if (_.isString(argument) && this.isFloat()) {
       return "'" + argument + "'";
     }
+    
+    if(_.isArray(argument)){
+      var parsedArray = _.map(argument, function(entry){
+        if(_.isString(entry)){
+          return "'" + entry + "'";
+        }
+
+        return entry;
+      });
+
+      return parsedArray.toString();
+    }
 
     return "'"+ argument +"'";
   };
