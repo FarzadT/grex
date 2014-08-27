@@ -44,6 +44,10 @@ module.exports = (function () {
 
       return parsedArray.toString();
     }
+    
+    if(_.isBoolean(argument)){
+      return argument.toString();
+    }
 
     return "'"+ argument +"'";
   };
