@@ -22,15 +22,15 @@ module.exports = (function () {
     if (this.isClassReference()) {
       return argument.toString();
     }
-
-    if (this.isFloat()) {
-      return this.value;
-    }
-
+    
     // Handle ids that are not numbers but pass parseFloat test
     // (ie. Titan edge ids)
     if (_.isString(argument) && this.isFloat()) {
       return "'" + argument + "'";
+    }
+
+    if (this.isFloat()) {
+      return this.value;
     }
     
     if(_.isArray(argument)){
